@@ -1,0 +1,20 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.matchBrackets": "always",
+  "editor.autoClosingBrackets": "always",
+  "editor.autoClosingDelete": "always",
+  "[typescript]": {
+    "editor.autoClosingBrackets": "always",
+    "editor.autoClosingDelete": "always",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.eol": "\n",
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 80,
+  "prettier.trailingComma": "all",
+  "prettier.endOfLine": "lf",
+  "prettier.arrowParens": "always",
+  "prettier.tabWidth": 2,
+  "prettier.bracketSpacing": true
+}

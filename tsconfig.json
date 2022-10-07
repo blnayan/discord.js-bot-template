@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "lib": ["ESNext"],
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "esModuleInterop": false,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@utils/*": ["src/utils/*"],
+      "@events/*": ["src/events/*"],
+      "@commands/*": ["src/commands/*"],
+      "@functions/*": ["src/functions/*"],
+      "@utils": ["src/utils/index.ts"],
+      "@events": ["src/events/index.ts"],
+      "@commands": ["src/commands/index.ts"],
+      "@functions": ["src/functions/index.ts"]
+    }
+  },
+  "include": ["src"],
+  "compileOnSave": true
+}
