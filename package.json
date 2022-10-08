@@ -6,13 +6,13 @@
   "author": "LaterIdiot",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LaterIdiot/PotatoBot-Beta.git"
+    "url": "git+https://github.com/LaterIdiot/discord.js-bot-template.git"
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LaterIdiot/PotatoBot-Beta/issues"
+    "url": "https://github.com/LaterIdiot/discord.js-bot-template/issues"
   },
-  "homepage": "https://github.com/LaterIdiot/PotatoBot-Beta#readme",
+  "homepage": "https://github.com/LaterIdiot/discord.js-bot-template#readme",
   "main": "dist/index.js",
   "_moduleAliases": {
     "@utils": "dist/utils",
