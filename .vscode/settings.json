@@ -16,5 +16,6 @@
   "prettier.endOfLine": "lf",
   "prettier.arrowParens": "always",
   "prettier.tabWidth": 2,
-  "prettier.bracketSpacing": true
+  "prettier.bracketSpacing": true,
+  "task.allowAutomaticTasks": "on"
 }
