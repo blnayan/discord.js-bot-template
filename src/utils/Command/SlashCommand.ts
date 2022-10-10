@@ -54,6 +54,7 @@ export abstract class SlashCommand extends BaseCommand {
       name: data.name,
       type: CommandType.SlashCommand,
       guildOnly: data.guildOnly,
+      permissions: data.permissions,
       execute: data.execute,
     });
     this.slashCommandType = data.slashCommandType;

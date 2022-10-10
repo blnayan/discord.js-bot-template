@@ -3,7 +3,7 @@ import { Awaitable, ClientEvents } from 'discord.js';
 export interface EventData<K extends keyof ClientEvents = keyof ClientEvents> {
   name: K;
   once?: boolean;
-  execute(...args: ClientEvents[K]): Awaitable<void>;
+  execute(...args: ClientEvents[K]): Awaitable<any>;
 }
 
 export class Event<K extends keyof ClientEvents = keyof ClientEvents> {
@@ -17,5 +17,5 @@ export class Event<K extends keyof ClientEvents = keyof ClientEvents> {
 
   public once?: boolean;
 
-  public execute: (...args: ClientEvents[K]) => Awaitable<void>;
+  public execute: (...args: ClientEvents[K]) => Awaitable<any>;
 }

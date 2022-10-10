@@ -3,6 +3,7 @@ import {
   CommandInteraction,
   MessageContextMenuCommandInteraction,
   UserContextMenuCommandInteraction,
+  PermissionResolvable,
 } from 'discord.js';
 import {
   CommandSlashCommand,
@@ -29,6 +30,7 @@ export interface BaseCommandData {
   type: CommandType;
   execute: ExecuteType;
   guildOnly?: boolean;
+  permissions?: PermissionResolvable;
 }
 
 export abstract class BaseCommand {
@@ -37,6 +39,7 @@ export abstract class BaseCommand {
     this.type = data.type;
     this.execute = data.execute;
     this.guildOnly = data.guildOnly ?? false;
+    this.permissions = data.permissions;
   }
 
   public name: string;
@@ -44,6 +47,8 @@ export abstract class BaseCommand {
   public type: CommandType;
 
   public guildOnly: boolean;
+
+  public permissions?: PermissionResolvable;
 
   public execute: ExecuteType;
 

@@ -3,8 +3,10 @@ import 'module-alias/register';
 import { Client, GatewayIntentBits } from 'discord.js';
 import * as events from '@events';
 import { Log, Event } from '@utils';
+import { generateCommandCollection } from '@functions';
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+client.commands = generateCommandCollection();
 
 // initializes all event listeners from the events folder
 const eventList = Object.values(events) as Event[];

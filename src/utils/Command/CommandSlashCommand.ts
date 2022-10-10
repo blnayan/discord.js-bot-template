@@ -21,6 +21,7 @@ export class CommandSlashCommand<
     super({
       name: data.name,
       guildOnly: data.guildOnly,
+      permissions: data.permissions,
       slashCommandType: SlashCommandType.Command,
       data: data.data,
       execute: data.execute,
