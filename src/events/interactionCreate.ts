@@ -57,9 +57,11 @@ export const interactionCreate = new Event({
             'The following slash command failed to run, report to the support server.',
         });
 
-        return interaction.reply({
-          embeds: [chatInputCommandFailedErrorEmbed],
-        });
+        return interaction
+          .reply({
+            embeds: [chatInputCommandFailedErrorEmbed],
+          })
+          .catch(Log.error);
       }
     }
   },
