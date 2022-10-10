@@ -1,0 +1,33 @@
+# This workflow will do a clean install of node dependencies, build the source code and run prettier and eslint to format the code and to fix the quality of the code respectively
+
+name: Format and Lint
+
+on: [push, pull_request]
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install pnpm
+        run: npm i -g pnpm
+
+      - name: Install NPM dependencies
+        run: pnpm i
+
+      - name: Run format
+        run: pnpm run format
+
+      - name: Run lint
+        run: pnpm run lint
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply prettier changes
+          branch: ${{ github.head_ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

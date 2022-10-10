@@ -23,7 +23,8 @@
   "scripts": {
     "start": "tsc && node --enable-source-maps .",
     "tsc": "tsc --watch",
-    "prettier": "prettier -w .",
+    "format": "prettier -w .",
+    "lint": "eslint src/* --fix",
     "register-global": "node --enable-source-maps ./dist/register/global.js"
   },
   "dependencies": {
