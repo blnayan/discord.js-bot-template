@@ -5,7 +5,7 @@ name: Format and Lint
 on: [push, pull_request]
 
 jobs:
-  format:
+  format_and_lint:
     runs-on: ubuntu-latest
 
     steps:
