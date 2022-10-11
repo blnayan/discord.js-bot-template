@@ -13,6 +13,7 @@ import {
   ApplicationCommandSubGroupData,
   ChatInputApplicationCommandData,
   ChatInputCommandInteraction,
+  PermissionResolvable,
 } from 'discord.js';
 
 export enum SlashCommandType {
@@ -43,6 +44,8 @@ export type SlashCommandApplicationCommandData =
   | ApplicationCommandSubCommandData;
 
 export interface SlashCommandData extends Omit<BaseCommandData, 'type'> {
+  guildOnly?: boolean;
+  permissions?: PermissionResolvable;
   slashCommandType: SlashCommandType;
   data: SlashCommandApplicationCommandData;
   execute: Execute<ChatInputCommandInteraction>;
@@ -53,10 +56,11 @@ export abstract class SlashCommand extends BaseCommand {
     super({
       name: data.name,
       type: CommandType.SlashCommand,
-      guildOnly: data.guildOnly,
-      permissions: data.permissions,
       execute: data.execute,
     });
+
+    this.guildOnly = data.guildOnly ?? false;
+    this.permissions = data.permissions;
     this.slashCommandType = data.slashCommandType;
     this.data = data.data;
   }
@@ -64,6 +68,10 @@ export abstract class SlashCommand extends BaseCommand {
   public declare type: CommandType.SlashCommand;
 
   public declare execute: Execute<ChatInputCommandInteraction>;
+
+  public guildOnly: boolean;
+
+  public permissions?: PermissionResolvable;
 
   public slashCommandType: SlashCommandType;
 
