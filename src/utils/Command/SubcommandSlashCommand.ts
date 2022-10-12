@@ -12,7 +12,7 @@ export class SubcommandSlashCommand extends SlashCommand {
       name: data.name,
       guildOnly: data.guildOnly,
       permissions: data.permissions,
-      slashCommandType: SlashCommandType.Command,
+      slashCommandType: SlashCommandType.Subcommand,
       data: data.data,
       execute: data.execute,
     });
