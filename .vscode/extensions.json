@@ -7,6 +7,10 @@
     "christian-kohler.npm-intellisense",
     "christian-kohler.path-intellisense",
     "esbenp.prettier-vscode",
-    "pmneo.tsimporter"
+    "pmneo.tsimporter",
+    "mikestead.dotenv",
+    "usernamehw.errorlens",
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    "ms-vscode-remote.remote-ssh"
   ]
 }
