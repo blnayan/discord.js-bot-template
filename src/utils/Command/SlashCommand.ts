@@ -11,6 +11,7 @@ import {
   ApplicationCommandOptionData,
   ApplicationCommandSubCommandData,
   ApplicationCommandSubGroupData,
+  ApplicationCommandType,
   ChatInputApplicationCommandData,
   ChatInputCommandInteraction,
   PermissionResolvable,
@@ -30,10 +31,13 @@ export type ApplicationCommandNoSubOptionData = Exclude<
 export interface ChatInputApplicationNoSubOptionCommandData
   extends ChatInputApplicationCommandData {
   options?: ApplicationCommandNoSubOptionData[];
+  type: ApplicationCommandType.ChatInput;
 }
 
 export interface ChatInputApplicationNoOptionCommandData
-  extends Omit<ChatInputApplicationCommandData, 'options'> {}
+  extends Omit<ChatInputApplicationCommandData, 'options'> {
+  type: ApplicationCommandType.ChatInput;
+}
 
 export interface ApplicationCommandNoOptionSubGroupData
   extends Omit<ApplicationCommandSubGroupData, 'options'> {}
