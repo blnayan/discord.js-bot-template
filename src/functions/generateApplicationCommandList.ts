@@ -37,19 +37,22 @@ export function generateApplicationCommandList() {
   for (let i = 0; subcommandGroupList.length > i; i += 1) {
     // TODO: add a name validator
     const subcommandGroup = subcommandGroupList[i];
-    const applicationCommandIndex = applicationCommandList.findIndex(
+    const commandName = subcommandGroup.name.split('-')[0];
+    const applicationCommand = applicationCommandList.find(
       (command) =>
-        command.name === subcommandGroup.name.split('-')[0] &&
+        command.name === commandName &&
         command.type === ApplicationCommandType.ChatInput,
+    ) as ChatInputApplicationCommandData | undefined;
+
+    if (!applicationCommand) throw new SyntaxError();
+
+    const regCommand = regCommandList.find(
+      (command) => command.name === commandName,
     );
 
     // throws syntax error if command matched with subcomand, doesn't have property hasSub to set to true
-    if (!regCommandList[applicationCommandIndex].hasSub)
-      throw new SyntaxError();
-
-    const applicationCommand = applicationCommandList[
-      applicationCommandIndex
-    ] as ChatInputApplicationCommandData;
+    if (!regCommand) throw new SyntaxError();
+    if (!regCommand.hasSub) throw new SyntaxError();
 
     if (applicationCommand.options)
       applicationCommand.options.push(subcommandGroup.data);
@@ -66,18 +69,21 @@ export function generateApplicationCommandList() {
     const commandName = subcommandNameArr[0];
     const subcommandGroupName =
       subcommandNameArr.length === 3 ? subcommandNameArr[1] : undefined;
-    const applicationCommandIndex = applicationCommandList.findIndex(
+    const applicationCommand = applicationCommandList.find(
       (command) =>
         command.name === commandName &&
         command.type === ApplicationCommandType.ChatInput,
+    ) as ChatInputApplicationCommandData | undefined;
+
+    if (!applicationCommand) throw new SyntaxError();
+
+    const regCommand = regCommandList.find(
+      (command) => command.name === commandName,
     );
 
-    if (!regCommandList[applicationCommandIndex].hasSub)
-      throw new SyntaxError();
-
-    const applicationCommand = applicationCommandList[
-      applicationCommandIndex
-    ] as ChatInputApplicationCommandData;
+    // throws syntax error if command matched with subcomand, doesn't have property hasSub to set to true
+    if (!regCommand) throw new SyntaxError();
+    if (!regCommand.hasSub) throw new SyntaxError();
 
     if (!applicationCommand.options) {
       applicationCommand.options = [subcommand.data];
@@ -86,7 +92,7 @@ export function generateApplicationCommandList() {
         (subcommandGroup) =>
           subcommandGroup.name === subcommandGroupName &&
           subcommandGroup.type === ApplicationCommandOptionType.SubcommandGroup,
-      ) as ApplicationCommandSubGroupData;
+      ) as ApplicationCommandSubGroupData | undefined;
 
       if (!subcommandGroup) {
         applicationCommand.options.push(subcommand.data);
