@@ -29,12 +29,14 @@
   },
   "dependencies": {
     "chalk": "4.1.2",
+    "common-tags": "^1.8.2",
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
     "fs-extra": "^10.1.0",
     "module-alias": "^2.2.2"
   },
   "devDependencies": {
+    "@types/common-tags": "^1.8.1",
     "@types/fs-extra": "^9.0.13",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
