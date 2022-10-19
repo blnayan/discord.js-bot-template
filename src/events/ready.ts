@@ -3,9 +3,14 @@ import { Event, Log } from '@utils';
 export const ready = new Event({
   name: 'ready',
   once: true,
-  execute() {
-    console.log('BOT READY!');
-    Log.error('LOL');
-    Log.criticalError('ERR');
+  async execute(client) {
+    Log.success('Client Ready');
+
+    try {
+      await client.prisma.$connect();
+      Log.success('Database Connected');
+    } catch (error) {
+      Log.error(error);
+    }
   },
 });

@@ -11,6 +11,7 @@
     "mikestead.dotenv",
     "usernamehw.errorlens",
     "ms-vscode-remote.vscode-remote-extensionpack",
-    "ms-vscode-remote.remote-ssh"
+    "ms-vscode-remote.remote-ssh",
+    "Prisma.prisma"
   ]
 }
